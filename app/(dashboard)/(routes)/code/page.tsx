@@ -36,7 +36,7 @@ const CodePage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const userMessage: ChatCompletionMessage = {
-        role: "user",
+        role: "assistant",
         content: values.prompt,
       };
       const newMessages = [...messages, userMessage];
@@ -116,12 +116,12 @@ const CodePage = () => {
                 key={message.content}
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user"
+                  message.role === "assistant"
                     ? "bg-white border border-black/10"
                     : "bg-muted"
                 )}
               >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                {message.role === "assistant" ? <UserAvatar /> : <BotAvatar />}
                 <ReactMarkdown
                   components={{
                     pre: ({ node, ...props }) => (
