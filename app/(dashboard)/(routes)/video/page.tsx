@@ -32,7 +32,7 @@ const VideoPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setVideo(undefined);
-      const respone = await axios.post("/api/video", values);
+      const respone = await axios.post("/api/edge-function-video", values);
       setVideo(respone.data[0]);
 
       form.reset();
